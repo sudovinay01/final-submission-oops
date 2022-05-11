@@ -41,7 +41,7 @@ public class TitleScreenUIManager : MonoBehaviour
         }
         else
         {
-            //SceneManager.LoadScene("2 level");
+            SceneManager.LoadScene("2 level");
         }
     }
     
