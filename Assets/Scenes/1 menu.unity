@@ -441,11 +441,6 @@ MonoBehaviour:
   - {fileID: 6357856027950546958, guid: a4df30cc50af3ad41a259a54d1690f2c, type: 3}
   - {fileID: 7166702929176981835, guid: e564ee943def4cf4eb434ec1cdc2f9d3, type: 3}
   - {fileID: 8509980560028075199, guid: 153bf9ece91fe9440bcf94ca87761d73, type: 3}
-  xLimit: 12
-  zLimit: 7
-  pauseTimeMinimun: 0
-  pauseTimeMaximum: 1
-  fallZone: 2
 --- !u!4 &385095181
 Transform:
   m_ObjectHideFlags: 0
