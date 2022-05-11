@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    [SerializeField]
-    float speed = 10;
+    //[SerializeField]
+    float speed = 10,
+        zLimit = -5;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,7 @@ public class Move : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         MoveObject();
     }
@@ -21,5 +22,9 @@ public class Move : MonoBehaviour
     void MoveObject()
     {
         transform.Translate(Vector3.back * Time.deltaTime * speed);
+        if (transform.position.z < zLimit)
+        {
+            Destroy(gameObject);
+        }
     }
 }

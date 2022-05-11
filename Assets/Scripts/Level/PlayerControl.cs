@@ -43,4 +43,13 @@ public class PlayerControl : MonoBehaviour
             transform.position = new Vector3(XLimit, transform.position.y, 0);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("other "+other.tag+" : "+other.name);
+        if(other.tag == "Enemy")
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
