@@ -11,9 +11,9 @@ public class Enemy : Move
     private float rotationSpeed = 500;
 
     //start is called before the first frame update
-    void start()
+    protected override void Start()
     {
-
+        base.Start();
     }
 
     public int GetPoints()
@@ -27,14 +27,5 @@ public class Enemy : Move
         
         enemyBody.transform.Rotate(Vector3.right, Time.deltaTime * rotationSpeed);
         base.Update();
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        //Debug.Log("collided with"+collision.gameObject.tag);
-        if (collision.gameObject.tag == "Player")
-        {
-            Destroy(gameObject);
-        }
     }
 }

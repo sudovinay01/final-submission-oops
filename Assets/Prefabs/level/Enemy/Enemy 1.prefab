@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74272f657178c0f498c238c07762a90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   enemyBody: {fileID: 3927600758063203524}
   points: 1
 --- !u!65 &7594427979374631419

@@ -8,22 +8,29 @@ public class PlayerControl : MonoBehaviour
         XLimit = 10,
         rotationSpeed = 500;
 
-    [SerializeField] ParticleSystem particle;
+    [SerializeField] ParticleSystem particleEnemy, particleWall;
     //private float particleDuration = 0.5f,
     //    particleSpeed = 50;
 
     [SerializeField]
-    private GameObject playerBody; 
+    private GameObject playerBody;
+
+    private LevelManager levelManager;
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MovePlayer();
+        if (levelManager.isGameActive)
+        {
+            MovePlayer();
+        }
     }
 
     void MovePlayer()
@@ -50,13 +57,28 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("other "+other.tag+" : "+other.name);
-        if(other.tag == "Enemy")
+        //Debug.Log("other " + other.tag + " : " + other.name);
+        if (other.CompareTag("Enemy"))
         {
-            //particle.main.duration. = particleDuration;
-            particle.Play();
-            //Debug.Log(other.gameObject.GetComponent<Enemy>().GetPoints());
+            particleEnemy.Play();
+            levelManager.scoreData += other.gameObject.GetComponent<Enemy>().GetPoints();
             Destroy(other.gameObject);
+        }
+        if (other.CompareTag("Wall"))
+        {
+            particleWall.Play();
+            levelManager.helthData -= 1;
+            if (levelManager.helthData <= 0)
+            {
+                Destroy(gameObject);
+                levelManager.isGameActive = false;
+                if(levelManager.scoreData > GameManager.Instance.bestScore)
+                {
+                    GameManager.Instance.bestScore = levelManager.scoreData;
+                    GameManager.Instance.bestScorePlayer = GameManager.Instance.currentPlayerName;
+                    GameManager.Instance.SaveScore();
+                }
+            }
         }
     }
 }

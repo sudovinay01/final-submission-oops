@@ -8,9 +8,12 @@ public class ObjectsSideSpawn : MonoBehaviour
 
     private float pauseTimeMinimun = 0f,
     pauseTimeMaximum = 2f;
+
+    private LevelManager levelManager;
     // Start is called before the first frame update
     void Start()
     {
+        levelManager = GameObject.Find("Level Manager").GetComponent<LevelManager>();
         StartCoroutine(SpawnObjects());
     }
 
@@ -23,8 +26,9 @@ public class ObjectsSideSpawn : MonoBehaviour
 
     private IEnumerator SpawnObjects()
     {
-        while (true)
+        while (levelManager.isGameActive)
         {
+            //Debug.Log(pauseTimeMaximum - (Mathf.Ceil(levelManager.scoreData / 20) * 0.2f));
             //transform.localPosition
             yield return new WaitForSeconds(Random.Range(pauseTimeMinimun, pauseTimeMaximum));
 
