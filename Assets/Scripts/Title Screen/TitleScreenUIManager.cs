@@ -17,8 +17,14 @@ public class TitleScreenUIManager : MonoBehaviour
     void Start()
     {
         warningText.text = null;
-
-        highScoreText.text = "no high score recorded";
+        if (GameManager.Instance.bestScorePlayer == "")
+        {
+            highScoreText.text = "no high score recorded";
+        }
+        else
+        {
+            highScoreText.text = GameManager.Instance.bestScore+" ( "+GameManager.Instance.bestScorePlayer+" )";
+        }
     }
 
     // Update is called once per frame
@@ -41,6 +47,7 @@ public class TitleScreenUIManager : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.currentPlayerName = playerNameInput;
             SceneManager.LoadScene("2 level");
         }
     }
