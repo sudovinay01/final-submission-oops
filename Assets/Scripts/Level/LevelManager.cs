@@ -9,6 +9,8 @@ public class LevelManager : MonoBehaviour
 
 
     private LevelUIManager levelUIManager;
+
+    // ENCAPSULATION
     public int scoreData
     {
         get { return score; }
@@ -27,6 +29,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    // ENCAPSULATION
     public int helthData
     {
         get { return health; }

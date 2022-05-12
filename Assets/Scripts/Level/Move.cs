@@ -28,7 +28,8 @@ public class Move : MonoBehaviour
         
     }
 
-    void MoveObject()
+    // ABSTRACTION
+    private void MoveObject()
     {
         //Debug.Log(speed * Mathf.Ceil(levelManager.scoreData / 20) + speed);
         transform.Translate(Vector3.back * Time.deltaTime * (speed * Mathf.Ceil(levelManager.scoreData / increaseSpeedAfter) + speed));

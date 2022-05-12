@@ -39,6 +39,7 @@ public class ObjectsSideSpawn : MonoBehaviour
             Quaternion rotation = transform.rotation;
 
             GameObject spawnObject = Instantiate(objects[randomObject], spawnPos, rotation);
+            // INHERITANCE
             spawnObject.AddComponent<Move>();
             Destroy(spawnObject.GetComponent<Rigidbody>());
         }

@@ -25,12 +25,14 @@ public class SpawnObjects : MonoBehaviour
 
     }
 
-    int RandomObjectIndex()
+    // ABSTRACTION
+    private int RandomObjectIndex()
     {
         return Random.Range(0, objects.Count);
     }
 
-    IEnumerator SpawnObjectsStart()
+    // ABSTRACTION
+    private IEnumerator SpawnObjectsStart()
     {
         while (true)
         {
@@ -68,27 +70,32 @@ public class SpawnObjects : MonoBehaviour
         }
     }
 
-    Vector3 SpawnRight(int randomObject)
+    // ABSTRACTION
+    private Vector3 SpawnRight(int randomObject)
     {
          return new Vector3(xLimit, objects[randomObject].transform.position.y, Random.Range(-zLimit, zLimit));
     }
-    Vector3 SpawnLeft(int randomObject)
+
+    // ABSTRACTION
+    private Vector3 SpawnLeft(int randomObject)
     {
         return new Vector3(-xLimit, objects[randomObject].transform.position.y, Random.Range(-zLimit, zLimit));
     }
 
-    Vector3 SpawnUp(int randomObject)
+    // ABSTRACTION
+    private Vector3 SpawnUp(int randomObject)
     {
         return new Vector3(Random.Range(-xLimit, xLimit), objects[randomObject].transform.position.y, zLimit);
     }
 
-    Vector3 SpawnDown(int randomObject)
+    // ABSTRACTION
+    private Vector3 SpawnDown(int randomObject)
     {
         return new Vector3(Random.Range(-xLimit, xLimit), objects[randomObject].transform.position.y, -zLimit);
     }
 
-
-    IEnumerator DestroyIfStill(GameObject obj)
+    // ABSTRACTION
+    private IEnumerator DestroyIfStill(GameObject obj)
     {
         Rigidbody objRB;
 

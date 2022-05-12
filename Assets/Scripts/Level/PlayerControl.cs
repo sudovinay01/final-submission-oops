@@ -33,7 +33,8 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    void MovePlayer()
+    // ABSTRACTION
+    private void MovePlayer()
     {
         playerBody.transform.Rotate(Vector3.right, Time.deltaTime * rotationSpeed);
         if (Input.GetKeyDown(KeyCode.RightArrow))

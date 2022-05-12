@@ -28,7 +28,8 @@ public class EnemySpawn : MonoBehaviour
         
     }
 
-    IEnumerator SpawnEnemies()
+    // ABSTRACTION
+    private IEnumerator SpawnEnemies()
     {
         while (levelManager.isGameActive)
         {
@@ -41,7 +42,8 @@ public class EnemySpawn : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnWalls()
+    // ABSTRACTION
+    private IEnumerator SpawnWalls()
     {
         while (levelManager.isGameActive)
         {

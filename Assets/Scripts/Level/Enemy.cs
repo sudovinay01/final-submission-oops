@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// INHERITANCE
 public class Enemy : Move
 {
     [SerializeField] private GameObject enemyBody;
@@ -16,12 +18,14 @@ public class Enemy : Move
         base.Start();
     }
 
+    
     public int GetPoints()
     {
         return points;
     }
 
     // update is called once per frame
+    // POLYMORPHISM (overriding)
     protected override void Update()
     {
         
