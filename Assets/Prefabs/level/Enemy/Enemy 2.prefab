@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74272f657178c0f498c238c07762a90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  zLimit: -5
+  speed: 20
   enemyBody: {fileID: 9078125105519026988}
+  points: 2
 --- !u!65 &5361080866460198393
 BoxCollider:
   m_ObjectHideFlags: 0

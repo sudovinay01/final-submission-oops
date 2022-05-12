@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    //[SerializeField]
-    float speed = 10,
-        zLimit = -5;
+    [SerializeField]
+    private float speed = 10;
+
+
+    private float zLimit = -5;
     // Start is called before the first frame update
     void Start()
     {

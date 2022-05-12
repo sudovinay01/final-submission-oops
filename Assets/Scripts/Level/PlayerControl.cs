@@ -8,6 +8,10 @@ public class PlayerControl : MonoBehaviour
         XLimit = 10,
         rotationSpeed = 500;
 
+    [SerializeField] ParticleSystem particle;
+    //private float particleDuration = 0.5f,
+    //    particleSpeed = 50;
+
     [SerializeField]
     private GameObject playerBody; 
     // Start is called before the first frame update
@@ -46,9 +50,12 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("other "+other.tag+" : "+other.name);
+        //Debug.Log("other "+other.tag+" : "+other.name);
         if(other.tag == "Enemy")
         {
+            //particle.main.duration. = particleDuration;
+            particle.Play();
+            //Debug.Log(other.gameObject.GetComponent<Enemy>().GetPoints());
             Destroy(other.gameObject);
         }
     }

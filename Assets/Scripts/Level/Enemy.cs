@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class Enemy : Move
 {
-    [SerializeField]
-    private GameObject enemyBody;
+    [SerializeField] private GameObject enemyBody;
+
+    [SerializeField] private int points;
 
     private float rotationSpeed = 500;
+
     //start is called before the first frame update
     void start()
     {
 
+    }
+
+    public int GetPoints()
+    {
+        return points;
     }
 
     // update is called once per frame
