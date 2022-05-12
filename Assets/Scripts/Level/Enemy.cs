@@ -29,7 +29,7 @@ public class Enemy : Move
     protected override void Update()
     {
         
-        enemyBody.transform.Rotate(Vector3.right, Time.deltaTime * rotationSpeed);
+        enemyBody.transform.Rotate(Vector3.left, Time.deltaTime * rotationSpeed);
         base.Update();
     }
 }
