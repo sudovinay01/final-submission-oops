@@ -39,7 +39,7 @@ public class TitleScreenUIManager : MonoBehaviour
 
         if (playerNameInput == "")
         {
-            warningText.text = "Enter you name below...";
+            warningText.text = "Enter your name below...";
         }
         else if (playerNameInput.Length > 10)
         {
