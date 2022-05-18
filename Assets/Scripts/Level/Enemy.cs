@@ -10,7 +10,7 @@ public class Enemy : Move
 
     [SerializeField] private int points;
 
-    private float rotationSpeed = 500;
+    private float rotationSpeed = 10;
 
     //start is called before the first frame update
     protected override void Start()
@@ -29,7 +29,7 @@ public class Enemy : Move
     protected override void Update()
     {
         
-        enemyBody.transform.Rotate(Vector3.left, Time.deltaTime * rotationSpeed);
+        enemyBody.transform.Rotate(Vector3.up, Time.deltaTime * rotationSpeed);
         base.Update();
     }
 }

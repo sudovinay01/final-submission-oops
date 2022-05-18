@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    [SerializeField] private float playerMoverDistance = 5,
-        XLimit = 10,
-        rotationSpeed = 500;
+    [SerializeField]
+    private float XLimit = 10,
+        rotationSpeed = 500,
+        moveSpeed=7,
+        moveDistance = 10;
 
     [SerializeField] ParticleSystem particleEnemy, particleWall;
     //private float particleDuration = 0.5f,
@@ -36,14 +38,19 @@ public class PlayerControl : MonoBehaviour
     // ABSTRACTION
     private void MovePlayer()
     {
-        playerBody.transform.Rotate(Vector3.right, Time.deltaTime * rotationSpeed);
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        moveSpeed = Mathf.Ceil(levelManager.scoreData / 20) * moveDistance;
+        if(moveSpeed == 0)
         {
-            transform.Translate(new Vector3(playerMoverDistance, 0, 0));
+            moveSpeed = moveDistance;
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        playerBody.transform.Rotate(Vector3.right, Time.deltaTime * rotationSpeed);
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(new Vector3(-playerMoverDistance, 0, 0));
+            transform.Translate(Vector3.right * Time.deltaTime * moveSpeed);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Translate(-Vector3.right * Time.deltaTime * moveSpeed);
         }
 
         if(transform.position.x < -XLimit)
